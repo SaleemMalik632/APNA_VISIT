@@ -8,7 +8,7 @@ We make a web base project with frontend in the React and Backend in in the Node
 
 # Developer:
   Saleem Malik (2021-CS-32)
-# course name
+# Course name
  SE Lab
 
 
