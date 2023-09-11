@@ -11,3 +11,6 @@ We make a web base project with frontend in the React and Backend in in the Node
 # course name
  SE Lab
 
+
+git commit -m "Update readme"
+
