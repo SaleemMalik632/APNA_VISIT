@@ -264,7 +264,7 @@ const Home = () =>
                 <div className="tuscany">
                   <div className="tusc text_align_left">
                     <div className="italy">
-                      <h3>Pais</h3>
+                      <h3>Paris</h3>
                       <span><img src={loca} alt="#" /> Italy</span>
                     </div>
                     <div className="italy_right">
@@ -317,7 +317,7 @@ const Home = () =>
                       <span>$1000.0</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aliquid nam sunt, provident voluptas maiores ad reiciendis odio vel laudantium ipsum pariatur minus! Repellendus, dolor accusantium.</p>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aliquid nam sunt, provident voluptas maiores ad reiciendis odio vel laudantium ipsum pariatur minus! Repellendus.</p>
                   <div className="tusc">
                     <Link className="read_more" to="Javascript:void(0)">Read More</Link >
                     <Link className="read_more" to="Javascript:void(0)">Book Now</Link >

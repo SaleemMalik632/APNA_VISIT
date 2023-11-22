@@ -47,9 +47,9 @@ const Footer = () => {
                                     <h3>Follow Us</h3>
                                     <ul className="social_icon ">
                                         <li><Link to="Javascript:void(0)"><i className="fa fa-facebook" aria-hidden="true"></i></Link ></li>
-                                        <li><Link to="Javascript:void(0)"><i className="fa ml-5 fa-twitter" aria-hidden="true"></i></Link ></li>
-                                        <li><Link to="Javascript:void(0)"><i className="fa fa-linkedin" aria-hidden="true"></i></Link ></li>
-                                        <li><Link to="Javascript:void(0)"><i className="fa fa-instagram" aria-hidden="true"></i></Link ></li>
+                                        <li><Link to="Javascript:void(0)"><i className="fa ml-2 fa-twitter" aria-hidden="true"></i></Link ></li>
+                                        <li><Link to="Javascript:void(0)"><i className="fa ml-2 fa-linkedin" aria-hidden="true"></i></Link ></li>
+                                        <li><Link to="Javascript:void(0)"><i className="fa ml-2 fa-instagram" aria-hidden="true"></i></Link ></li>
                                     </ul>
                                 </div>
                             </div>
