@@ -9,11 +9,12 @@ import packag3 from '../assets/images/packag3.jpg'
 import packag4 from '../assets/images/packag4.jpg'
 import loca from '../assets/images/loca.png'
 import test22 from '../assets/images/test22.jpg'
-
+import Navbar from '../Navbar/Navbar'
 const Home = () =>
 {
   return (
     <>
+      <Navbar/>
       <div className="full_bg">
         <div className="slider_main">
           <div className="container">

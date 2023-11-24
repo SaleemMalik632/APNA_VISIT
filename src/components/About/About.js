@@ -1,10 +1,12 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar'
 const About = () =>
 {
     return (
         <>
+            <Navbar/>
             <div className="about">
                 <div className="container">
                     <div className="row">

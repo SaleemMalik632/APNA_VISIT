@@ -7,10 +7,12 @@ import packag3 from '../assets/images/packag3.jpg'
 import packag4 from '../assets/images/packag4.jpg'
 import loca from '../assets/images/loca.png'
 import { Link } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar'
 const Packages = () =>
 {
     return (
         <>
+            <Navbar/>
             <div className="packages">
                 <div className="container">
                     <div className="row">

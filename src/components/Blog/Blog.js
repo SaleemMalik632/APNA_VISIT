@@ -1,5 +1,6 @@
 /* eslint-disable no-script-url */
 import React from 'react'
+import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import blog1 from '../assets/images/blog1.jpg'
 import blog2 from '../assets/images/blog2.jpg'
@@ -10,6 +11,7 @@ const Blog = () =>
 {
   return (
       <>
+          <Navbar/>
           <div className="packages">
               <div className="container">
                   <div className="row">
@@ -48,7 +50,7 @@ const Blog = () =>
                               <div className="tuscany">
                                   <div className="tusc text_align_left">
                                       <div className="italy">
-                                          <h3>Pais</h3>
+                                          <h3>Paris</h3>
                                           <span><img src={loca} alt="#" /> Italy</span>
                                       </div>
                                       <div className="italy_right">

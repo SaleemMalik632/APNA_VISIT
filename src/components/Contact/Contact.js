@@ -1,5 +1,6 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
+import Navbar from '../Navbar/Navbar';
 const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -8,6 +9,7 @@ const Contact = () => {
     return (
 
         <>
+            <Navbar/>
             <form onSubmit={handleSubmit}>
             <div className="contact">
                 <div className="container">
