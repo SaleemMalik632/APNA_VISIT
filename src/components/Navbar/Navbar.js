@@ -13,8 +13,25 @@ import logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
+const destinations = {
+    Paris: ['Eiffel Tower', 'Louvre Museum', 'Arc de Triomphe'],
+    SanFrancisco: ['Golden Gate Bridge', 'Alcatraz Island', 'Fishermans Wharf'],
+    Canada: ['Niagara Falls', 'CN Tower', 'Butchart Gardens'],
+    Australia: ['Sydney Opera House', 'Great Barrier Reef', 'Uluru'],
+};
+
 const Navbar = () =>
 {
+    const handleCountryChange = (event) =>
+    {
+        setCountry(event.target.value);
+        setDestination('');
+    };
+
+    const handleDestinationChange = (event) =>
+    {
+        setDestination(event.target.value);
+    };
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [country, setCountry] = useState('');
@@ -23,9 +40,9 @@ const Navbar = () =>
     const [departureDate, setDepartureDate] = useState('');
     const [numberTravelers, setNumberTravelers] = useState('');
     const [specialRequests, setSpecialRequests] = useState('');
-    const handleSubmit = (event) =>
+    const handleSubmit = (e) =>
     {
-        event.preventDefault();
+        e.preventDefault();
 
         const formData = {
             name,
@@ -39,7 +56,25 @@ const Navbar = () =>
         };
 
         console.log('Form data:', formData);
+        e.preventDefault();
+        fetch('http://localhost:3005/api2/booking', {
+            body: JSON.stringify({
+                "name": name,
+                "email": email,
+                "country":country.replace,
+                "destination": destination,
+                "arrivalDate": arrivalDate,
+                "departureDate":departureDate,
+                "numberTravelers": numberTravelers,
+                "specialRequests": specialRequests
+            }),
+            headers: { "Content-Type": "application/json" },
+            method: 'POST',
+        })
+            .then(result => console.log(result))
+            .catch(err => console.log(err))
     };
+
     return (
         <>
             <div className="header_midil">
@@ -62,27 +97,27 @@ const Navbar = () =>
                                 <div className="collapse navbar-collapse" id="navbarsExample04">
                                     <ul className="navbar-nav mr-auto">
                                         <li className="nav-item ">
-                                            <Link  className="nav-link" to="/">Home</Link >
+                                            <Link className="nav-link" to="/">Home</Link >
                                         </li>
                                         <li className="nav-item">
-                                            <Link  className="nav-link" to="/about">About</Link >
+                                            <Link className="nav-link" to="/about">About</Link >
                                         </li>
                                         <li className="nav-item">
-                                            <Link  className="nav-link" to="/packages">Pakages </Link >
+                                            <Link className="nav-link" to="/packages">Pakages </Link >
                                         </li>
                                         <li className="nav-item">
-                                            
+
                                             <Link className="nav-link" to="/" data-bs-toggle="modal" data-bs-target="#bookinglabel" type="button" >Booking </Link >
                                         </li>
                                         <li className="nav-item">
-                                            <Link  className="nav-link" to="/blog">Blog</Link >
+                                            <Link className="nav-link" to="/blog">Blog</Link >
                                         </li>
                                         <li className="nav-item">
-                                            <Link  className="nav-link" to="/contact">Contact</Link >
+                                            <Link className="nav-link" to="/contact">Contact</Link >
                                         </li>
                                         <li className="nav-item">
                                             <Link to="/login">
-                                            <button className="btn register-btn" type="button">Register Now</button>
+                                                <button className="btn register-btn" type="button">Register Now</button>
                                             </Link>
                                         </li>
                                     </ul>
@@ -116,23 +151,33 @@ const Navbar = () =>
                                     />
 
                                     <label htmlFor="country">Country:</label>
-                                    <select id="country" name="country" value={country} onChange={(event) => setCountry(event.target.value)} required>
+                                    <select id="country" name="country" value={country} onChange={handleCountryChange} required>
                                         <option value="">Select a country</option>
-                                        <option value="US">United States</option>
-                                        <option value="UK">United Kingdom</option>
-                                        <option value="CA">Canada</option>
-                                        <option value="AU">Australia</option>
+                                        {Object.keys(destinations).map((country) => (
+                                            <option key={country} value={country}>
+                                                {country}
+                                            </option>
+                                        ))}
                                     </select>
 
-                                    <label htmlFor="destination">Destination:</label>
-                                    <input
-                                        type="text"
-                                        id="destination"
-                                        name="destination"
-                                        value={destination}
-                                        onChange={(event) => setDestination(event.target.value)}
-                                        required
-                                    />
+                                    {country && (
+                                        <div>
+                                            <label htmlFor="destination">Destination:</label>
+                                            <select
+                                                id="destination"
+                                                name="destination"
+                                                value={destination}
+                                                onChange={handleDestinationChange}
+                                                required
+                                            >
+                                                {destinations[country].map((destination) => (
+                                                    <option key={destination} value={destination}>
+                                                        {destination}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    )}
 
                                     <label htmlFor="arrivalDate">Arrival Date:</label>
                                     <input
@@ -141,9 +186,22 @@ const Navbar = () =>
                                         id="arrivalDate"
                                         name="arrivalDate"
                                         value={arrivalDate}
-                                        onChange={(event) => setArrivalDate(event.target.value)}
+                                        onChange={(event) =>
+                                        {
+                                            const today = new Date();
+                                            const selectedDate = new Date(event.target.value);
+
+                                            if (selectedDate >= today)
+                                            {
+                                                setArrivalDate(event.target.value);
+                                            } else
+                                            {
+                                                alert('Invalid date. Please select a current or future date.');
+                                            }
+                                        }}
                                         required
                                     />
+
 
                                     <label htmlFor="departureDate">Departure Date:</label>
                                     <input
@@ -152,9 +210,22 @@ const Navbar = () =>
                                         id="departureDate"
                                         name="departureDate"
                                         value={departureDate}
-                                        onChange={(event) => setDepartureDate(event.target.value)}
+                                        onChange={(event) =>
+                                        {
+                                            const selectedDepartureDate = new Date(event.target.value);
+                                            const selectedArrivalDate = new Date(arrivalDate);
+
+                                            if (selectedDepartureDate >= selectedArrivalDate)
+                                            {
+                                                setDepartureDate(event.target.value);
+                                            } else
+                                            {
+                                                alert('Invalid departure date. Please select a date on or after the arrival date.');
+                                            }
+                                        }}
                                         required
                                     />
+
 
                                     <label htmlFor="numberTravelers">Number of Travelers:</label>
                                     <input
@@ -162,7 +233,14 @@ const Navbar = () =>
                                         id="numberTravelers"
                                         name="numberTravelers"
                                         value={numberTravelers}
-                                        onChange={(event) => setNumberTravelers(event.target.value)}
+                                        onChange={(event) =>
+                                        {
+                                            if (event.target.value >= 0)
+                                            {
+                                                setNumberTravelers(event.target.value);
+                                            }
+                                        }}
+                                        min="1"
                                         required
                                     />
 
@@ -172,6 +250,7 @@ const Navbar = () =>
                                         name="specialRequests"
                                         value={specialRequests}
                                         onChange={(event) => setSpecialRequests(event.target.value)}
+                                        required
                                     />
 
                                     <button className='book-btn' type="submit">Book Now</button>

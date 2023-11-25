@@ -7,7 +7,6 @@ const Signup = () =>
     const [name, setname] = React.useState();
     const handleSubmit = (e) =>
     {
-        console.log(name);
         e.preventDefault();
         fetch('http://localhost:3005/api/users', {
             body: JSON.stringify({
@@ -32,13 +31,14 @@ const Signup = () =>
                                 <i className="login__icon fas fa-lock"></i>
                                 <input type="name" className="login__input" placeholder="Email"
                                     onChange={(e) => setemail(e.target.value)}
+                                    required
                                 />
                             </div>
                             <div className="login__field">
                                 <i className="login__icon fas fa-lock"></i>
                                 <input type="name" className="login__input" placeholder="Full Name" 
                                     onChange={(e) => setname(e.target.value)}
-
+                                    required
                                 />
                             </div>
                             <div className="login__field">

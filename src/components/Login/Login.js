@@ -17,7 +17,7 @@ const Login = () =>
             method: 'POST',
         })
         console.log(response);
-    }
+    }   
     return (
         <>
             <div className="container kio">
@@ -29,12 +29,14 @@ const Login = () =>
                                 <i className="login__icon fas fa-lock"></i>
                                 <input type="name" className="login__input" placeholder="Email"
                                     onChange={(e) => setemail(e.target.value)}
+                                    required
                                 />
                             </div>
                             <div className="login__field">
                                 <i className="login__icon fas fa-lock"></i>
                                 <input type="password" className="login__input" placeholder="Password"
                                     onChange={(e) => setpassword(e.target.value)}
+                                    required
                                 />
                             </div>
                             <button type="submit" className="button login__submit">
@@ -42,7 +44,6 @@ const Login = () =>
                                 <i className="button__icon fas fa-chevron-right"></i>
                             </button>
                             <div className="container">
-
                                 <Link to="/signup" className='cnacc'>Create a New Account</Link>
                                 <br />
                                 <Link to="/">Exit</Link>

@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require("../models/user");
 
-// add student
+// Signup
 async function Signup(req, res)
 {
     try
@@ -22,6 +22,7 @@ async function Signup(req, res)
         res.status(500).json({ message: err.message, data: null, status: 'error' });
     }
 }
+// Login
 async function Login(req, res)
 {
     try
@@ -62,7 +63,7 @@ async function getUser(req, res)
         res.status(500).json({ error: err.message, message: "Internal server error" });
     }
 }
-// update student by id
+// update user by id
 async function updateUser(req, res)
 {
     try
@@ -77,7 +78,7 @@ async function updateUser(req, res)
         res.status(500).json({ error: err.message });
     }
 }
-// delete a student by id
+// delete a user by id
 
 async function deleteUser(req, res)
 {
@@ -85,7 +86,7 @@ async function deleteUser(req, res)
     {
         const { id } = req.params;
         console.log(id);
-        await User.findByIdAndRemove(id);
+            await User.findByIdAndDelete(id);
         res.sendStatus(200);
     } catch (err)
     {
