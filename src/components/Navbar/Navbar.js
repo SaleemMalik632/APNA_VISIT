@@ -23,7 +23,6 @@ const Navbar = () =>
     const [departureDate, setDepartureDate] = useState('');
     const [numberTravelers, setNumberTravelers] = useState('');
     const [specialRequests, setSpecialRequests] = useState('');
-
     const handleSubmit = (event) =>
     {
         event.preventDefault();
@@ -94,7 +93,6 @@ const Navbar = () =>
                 </div>
             </div>
             <div>
-
                 <div className="modal fade" id="bookinglabel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
