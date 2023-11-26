@@ -8,18 +8,30 @@ const Signup = () =>
     const handleSubmit = (e) =>
     {
         e.preventDefault();
+
         fetch('http://localhost:3005/api/users', {
             body: JSON.stringify({
-                "name":name,
-                "email": email, 
-                "password": password
-                }),
-                headers: { "Content-Type": "application/json" },
-                method:'POST',
+                name,
+                email,
+                password,
+            }),
+            headers: { "Content-Type": "application/json" },
+            method: 'POST',
         })
-        .then(result=>console.log(result))
-        .catch(err=>console.log(err))
-    }
+            .then((response) =>
+            {
+                if (response.status === 201)
+                {
+                    alert("Signup Successfully")
+                }
+                else
+                {
+                    console.log('Signup failed:', response.status);
+                }
+            })
+            .catch(err => console.log(err));
+    };
+
     return (
         <>
             <div className="container kio">
@@ -47,10 +59,12 @@ const Signup = () =>
                                     onChange={(e) => setpassword(e.target.value)}
                                 />
                             </div>
+                            <Link to="/">
                             <button  className="button login__submit">
                                 <span onSubmit={handleSubmit} className="button__text">Sign Up</span>
                                 <i className="button__icon fas fa-chevron-right"></i>
                             </button>
+                            </Link>
                             <div className="container">
                             <Link to="/login" className='cnacc'>Already Have a Account</Link>
                                 <br />

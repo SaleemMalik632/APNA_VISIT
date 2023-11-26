@@ -6,6 +6,7 @@ import About from './components/About/About'
 import Packages from './components/Packages/Packages';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import Admin from './Admin/Admin';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App()
@@ -21,6 +22,7 @@ function App()
         <Route path='/packages' element={<Packages />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='/admin' element={<Admin />}></Route>
       </Routes>
     </BrowserRouter>
     

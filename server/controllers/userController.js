@@ -7,7 +7,7 @@ async function Signup(req, res)
     try
     {
         let { email, password, name } = req.body;
-        let hashPass = await bcrypt.hash(password);
+        let hashPass = await bcrypt.hash(password,8);
         console.log(req.body);
         console.log(hashPass);
         let data = {
@@ -28,26 +28,14 @@ async function Login(req, res)
     try
     {
         console.log(req.body);
-        let { email, password } = req.body;
-        const user = await User.findOne({ email });
-        console.log(!user);
-        if (!user)
+        console.log(req.body.email)
+        if (req.body.email === "muhammadmoazam711@gmail.com" && req.body.password===1234)
         {
-            return res.status(404).json({ message: 'not found', data: null, status: 'ok' });
+            console.log("User found")
+            return res.status(200).json({ message: 'user found', status: 'ok' });
         }
-        else
-        {
-            if (bcrypt.compare(password, user.password))
-            {
-                console.log(user);
-                return res.status(200).json({ message: 'found', data: user, status: 'ok' });
-            } else
-            {
-                return res.status(401).json({ message: 'password not matched', data: null, status: 'ok' });
-
-            }
-        }
-    } catch (err)
+    }
+    catch (err)
     {
         res.status(500).json({ error: err.message });
     }

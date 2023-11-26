@@ -37,7 +37,7 @@ const Home = () =>
                               <Link to="#" >&nbsp</Link>
                               <Link className="read_more" to="Javascript:void(0)">Read More</Link >
                               <Link  to="#" >&nbsp</Link>
-                              <Link className="read_more" to="Javascript:void(0)">Contact us</Link >
+                              <Link className="read_more" to="/contact">Contact us</Link >
                             </div>
                           </div>
                         </div>
@@ -254,7 +254,7 @@ const Home = () =>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, consectetur ratione? Blanditiis unde, asperiores praesentium ipsa voluptatibus adipisci hic, repudiandae omnis nihil alias, molestiae itaque laboriosam.</p>
                   <div className="tusc">
                     <Link className="read_more" to="Javascript:void(0)">Read More</Link >
-                    <Link className="read_more" to="Javascript:void(0)">Book Now</Link >
+                    <Link className="read_more" data-bs-toggle="modal" data-bs-target="#bookinglabel" type="button">Book Now</Link >
                   </div>
                 </div>
               </div>
@@ -276,7 +276,7 @@ const Home = () =>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum recusandae sapiente inventore quidem pariatur voluptate in repudiandae amet quia doloremque suscipit non ullam adipisci dolorum, consectetur a obcaecati delectus nemo?</p>
                   <div className="tusc">
                     <Link className="read_more" to="Javascript:void(0)">Read More</Link >
-                    <Link className="read_more" to="Javascript:void(0)">Book Now</Link >
+                    <Link className="read_more" data-bs-toggle="modal" data-bs-target="#bookinglabel" type="button">Book Now</Link >
                   </div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ const Home = () =>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente nihil molestias esse dolores ad rem nam blanditiis quis adipisci! Praesentium, soluta rem fugiat consectetur asperiores quia.</p>
                   <div className="tusc">
                     <Link className="read_more" to="Javascript:void(0)">Read More</Link >
-                    <Link className="read_more" to="Javascript:void(0)">Book Now</Link >
+                    <Link className="read_more" data-bs-toggle="modal" data-bs-target="#bookinglabel" type="button">Book Now</Link >
                   </div>
                 </div>
               </div>
@@ -321,7 +321,7 @@ const Home = () =>
                   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea aliquid nam sunt, provident voluptas maiores ad reiciendis odio vel laudantium ipsum pariatur minus! Repellendus.</p>
                   <div className="tusc">
                     <Link className="read_more" to="Javascript:void(0)">Read More</Link >
-                    <Link className="read_more" to="Javascript:void(0)">Book Now</Link >
+                    <Link className="read_more" data-bs-toggle="modal" data-bs-target="#bookinglabel" type="button">Book Now</Link >
                   </div>
                 </div>
               </div>

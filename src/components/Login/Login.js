@@ -1,23 +1,42 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 const Login = () =>
 {
     const [email, setemail] = useState();
     const [password, setpassword] = useState();
+    const navigate = useNavigate();
     const handleSubmit = async (e) =>
     {
         e.preventDefault();
-        let response = await fetch('http://localhost:3005/api/login', {
-            body: JSON.stringify({
-                "email": email,
-                "password": password
-            }),
-            headers: { "Content-Type": "application/json" },
-            method: 'POST',
-        })
-        console.log(response);
-    }   
+
+        try
+        {
+            const response = await fetch('http://localhost:3005/api/login', {
+                body: JSON.stringify({
+                    "email": email,
+                    "password": password
+                }),
+                headers: { "Content-Type": "application/json" },
+                method: 'POST',
+            });
+
+            if (response.status === 200)
+            {
+                navigate('/blog');
+            }
+            else if (response.status === 404)
+            {
+                alert("Sorry, User not found");
+            } else
+            {
+                console.error(`Error logging in: ${response.status}`);
+            }
+        } catch (error)
+        {
+            console.error(error);
+        }
+    };
     return (
         <>
             <div className="container kio">

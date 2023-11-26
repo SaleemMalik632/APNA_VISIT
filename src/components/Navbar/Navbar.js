@@ -57,6 +57,7 @@ const Navbar = () =>
 
         console.log('Form data:', formData);
         e.preventDefault();
+
         fetch('http://localhost:3005/api2/booking', {
             body: JSON.stringify({
                 "name": name,
@@ -73,6 +74,7 @@ const Navbar = () =>
         })
             .then(result => console.log(result))
             .catch(err => console.log(err))
+
     };
 
     return (
@@ -253,7 +255,7 @@ const Navbar = () =>
                                         required
                                     />
 
-                                    <button className='book-btn' type="submit">Book Now</button>
+                                    <button data-bs-dismiss="modal" className='book-btn' type="submit">Book Now</button>
                                 </form>
                             </div>
                         </div>
